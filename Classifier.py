@@ -7,7 +7,7 @@
 import numpy as np
 
 
-class ABC:
+class Classifier:
     def __init__(self, _alpha, _beta):
         self.c_list = []  # category_list
         self.bk_list = []  # 도서명 자질 리스트
@@ -92,6 +92,6 @@ if __name__ == '__main__':  # 모듈 실행 테스트 코드
     new_klist = ["가나", "책상", "유채화"]
 
     alpha = 0.5  # 도서명 자질 빈도 가중치 설정
-    model = ABC(alpha, 1 - alpha)  # 모델 객체 생성
+    model = Classifier(alpha, 1 - alpha)  # 모델 객체 생성
     model.learning(books)  # 학습
     print model.exercise(new_bklist, new_klist)  # 모델에 의해 분류된 카테고리 명 출력

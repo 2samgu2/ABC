@@ -3,9 +3,8 @@ import urllib2
 import bs4
 import urllib
 import time
-
 import sys
-
+import lxml
 
 def urldecode(s):
     return urllib.unquote_plus(s).decode('utf8')
@@ -21,7 +20,7 @@ def url_req(url):
         print e.code
     except urllib2.URLError, e:
         print str(e.args[0]).decode('cp949','ignore') + str(e.args[1]).decode('cp949','ignore')
-    return result
+    return result   
 
 
 class Book_Collector:
@@ -30,7 +29,7 @@ class Book_Collector:
                    "topF1=title&category=dan&all=on&" \
                    "detailSearch=true&sort=iregdate&desc=desc&kdcddc=kdc&kdcddcCode="
 
-    def getISBN(result, count):
+    def getISBN(self,result, count):
         html = bs4.BeautifulSoup(result, "lxml")
         book_list = html.findAll("div", class_="searchList")
         book_arr = []
