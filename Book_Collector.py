@@ -4,7 +4,7 @@ import urllib2
 import lxml
 import xml.etree.ElementTree as ET
 import bs4
-import re
+import tool.regex as re
 import time
 import tool.retry as rt
 
