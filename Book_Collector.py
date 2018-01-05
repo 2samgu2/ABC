@@ -7,8 +7,6 @@ import bs4
 import re
 import time
 import tool.retry as rt
-import socket
-import errno
 
 @rt.retry(Exception, tries=4, delay=10, backoff=1)
 def url_req(url, opts=[]):
